@@ -1,0 +1,5 @@
+[2024-01-13 12:05:54,394 : INFO : common : yaml file: config\config.yaml loaded successfully]
+[2024-01-13 12:06:54,296 : INFO : common : yaml file: config\config.yaml loaded successfully]
+[2024-01-13 12:06:54,307 : INFO : common : yaml file: params.yaml loaded successfully]
+[2024-01-13 12:06:54,311 : INFO : common : created directory at: dataset/data_ingestion]
+[2024-01-13 12:06:54,312 : INFO : 3276116078 : data downloaded!]
