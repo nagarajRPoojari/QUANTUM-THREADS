@@ -1,0 +1,4 @@
+[qiskit.global]
+
+  [qiskit.ibmq]
+  ibmqx_token = "9296d1587687ddf1e944cdff40667ef61563f94d507cb4f1b78623ab038fccbe82132e9bbce8821944c91a572ca525109fefb56221b2d48b33c33fc2fcaf8ad3"

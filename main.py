@@ -30,30 +30,50 @@ selected_model = c2.selectbox("Select model", ["Resnet50", "Hybrid-quantum-Resne
 if selected_model == "Resnet50":
     device = ["CPU"]
 elif selected_model == "Hybrid-quantum-Resnet50":
-    device = ["qiskit.aer", "default.qubit"]
+    device = ["IBM simulator-qiskit.aer", "pennylane simulator-default.qubit","IBM Qiskit kyoto(Hardware)"]
 else:
     device = []
     
 
-selected_city = c2.selectbox("Select device", device)
+selected_model = c2.selectbox("Select device", device)
 
 
 image=c1.file_uploader("Upload image",type=["jpg",'png','jpeg'])
-if image !=None and device[0]=="CPU":
-    res,prob=pipeline.inference(image)
-    c2.success("Done.")
+if image !=None and selected_model=="CPU":
+    with c2.status("Loading statevector simulator...", expanded=True) as status:
+        res,prob=pipeline.inference(image)
+        status.update(label="Inference completed!", state="complete", expanded=False)
+
     c1.write(res)
     c1.image(image, caption="Uploaded Image",width=400)
 
     c2.bar_chart(prob,x='class')
     
-elif image!=None and device!="CPU":
-    with st.spinner(f"Getting {device[0]} ready.."):
+elif image!=None and selected_model!="IBM Qiskit kyoto(Hardware)":
+    with c2.status("Loading statevector simulator...", expanded=True) as status:
         res,prob=pipeline.inference(image,device='quantum')
-        c2.success("Done.")
+        status.update(label="Inference completed!", state="complete", expanded=False)
+        
     c1.write(res)
     c1.image(image, caption="Uploaded Image",width=400)   
     c2.bar_chart(prob,x='class')
+    
+elif image!=None and selected_model=="IBM Qiskit kyoto(Hardware)":
+    with c2.status("Job added to queue...", expanded=True) as status:
+        
+        #pipeline for QPU
+        dev,circuit=pipeline.inference(image,device='QPU')
+        
+        
+        c2.write(f"{dev.capabilities()}")
+        sample_inputs=np.random.rand(1,16)
+        sample_weights=np.random.rand(1,16)
+        circuit(sample_inputs,sample_weights)
+        status.update(label="Inference completed!", state="complete", expanded=False)
+        
+        
+
+    
 
 
 

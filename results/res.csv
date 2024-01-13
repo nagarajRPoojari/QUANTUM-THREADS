@@ -1,0 +1,3 @@
+model,validation accuracy
+resnet50,83.7
+Hybrid classical quantum resnet50, 85.9
