@@ -9,6 +9,9 @@ import time
 warnings.filterwarnings("ignore")
 
 
+st.set_page_config(page_title="Quantum",page_icon=":rocket:",layout="wide")
+st.title("Quantum Threads")
+
 @st.cache_resource()
 def load_model():
     config=ConfigurationManager().get_model_trainer_config()
