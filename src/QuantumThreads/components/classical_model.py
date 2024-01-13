@@ -31,11 +31,7 @@ class ClassicalModelTrainer:
         rescale = preprocessing.Rescaling(1./255)
         
         
-        inputs = Input(shape=(self.config.img_size[0],self.config.img_size[1],3))
-        x = rescale(inputs)
-        x=base_model(x)
-        x = layers.Dense(256, activation='relu')(x)
-        predictions = layers.Dense(self.config.num_classes, activation='softmax')(x)
+
         
         self.model = models.Model(inputs=inputs, outputs=predictions)
 
