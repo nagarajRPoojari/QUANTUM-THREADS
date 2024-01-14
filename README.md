@@ -30,8 +30,6 @@ This project comprises a brief research on three popular classical models ResNet
 ![qpu-hardwere](https://github.com/nagarajRPoojari/Quantum-Threads/assets/116948655/c00cbb9e-2e12-41e0-a017-b1b2d0a43a2c)
 
 
-Insert gif or link to demo
-
 
 ## Environment Variables
 
@@ -47,7 +45,7 @@ If you want to run inference on real IBM Quantum device you need to add IBM Quan
 Clone this repo
 
 ```bash
-  git clone 
+  git clone https://github.com/nagarajRPoojari/Quantum-Threads.git
 ```
 install requirements
 ```bash
