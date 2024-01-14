@@ -73,6 +73,8 @@ class QuantumModelTrainer:
             base_model=ResNet50(weights='imagenet')
         elif self.config.model_name=='InceptionV3':
             base_model=InceptionV3(weights='imagenet')
+        elif self.config.model_name=='ResNet18':
+            base_model=InceptionV3(weights='imagenet')
             
             
         rescale = preprocessing.Rescaling(1./255)

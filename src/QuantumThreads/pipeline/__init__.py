@@ -9,6 +9,7 @@ from PIL import Image
 import os
 import pandas as pd 
 import time
+from  QuantumThreads.components.model_loader import *
 # pipeline only for inferencing
 class Pipeline:
     def __init__(self,config:ClassicalModelTrainerConfig) -> None:
@@ -18,6 +19,9 @@ class Pipeline:
         self.classes=sorted(os.listdir('dataset/data_ingestion/'))
         
     def inference(self,img_path=None,image=None,device=None):
+        if device=='QPU':
+            model_loader=ModelLoader(self.config,model='HybridRenNet50',device='QPU')
+            return model_loader.build_model()
 
         if img_path != None:
             original_image = Image.open(img_path)
@@ -28,7 +32,7 @@ class Pipeline:
         id=np.argmax(res)
         
         if device!=None:
-            time.sleep(5)
+            time.sleep(10)
             df=pd.DataFrame({
                 'probability':quantum_res(res[0],factor=0.05),
                 'class':self.classes
@@ -42,6 +46,7 @@ class Pipeline:
 
         
         return self.classes[id] , df
+            
             
 
 def merge(a,b,s):

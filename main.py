@@ -40,7 +40,7 @@ selected_model = c2.selectbox("Select device", device)
 
 image=c1.file_uploader("Upload image",type=["jpg",'png','jpeg'])
 if image !=None and selected_model=="CPU":
-    with c2.status("Loading statevector simulator...", expanded=True) as status:
+    with c2.status("Loading classical model...", expanded=True) as status:
         res,prob=pipeline.inference(image)
         status.update(label="Inference completed!", state="complete", expanded=False)
 
