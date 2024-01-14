@@ -20,6 +20,7 @@ class ModelLoader:
         self.config=config
         self.model_path=config.model_ckpt
         self.device=device
+        self.model=model
         
         
     def build_model(self):
