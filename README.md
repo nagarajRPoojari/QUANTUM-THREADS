@@ -26,6 +26,9 @@ This project comprises a brief research on three popular classical models ResNet
 
 
 ## Demo
+![resnet-50](https://github.com/nagarajRPoojari/Quantum-Threads/assets/116948655/0108ce20-d8f5-434f-8ee7-1b589b022b9c)
+![qpu-hardwere](https://github.com/nagarajRPoojari/Quantum-Threads/assets/116948655/c00cbb9e-2e12-41e0-a017-b1b2d0a43a2c)
+
 
 Insert gif or link to demo
 
